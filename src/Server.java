@@ -1,3 +1,5 @@
+import config.Config;
+
 import java.net.*;
 import java.io.*;
 
@@ -6,6 +8,7 @@ public class Server extends Thread {
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
+        Config config = new Config();
 
         try {
             serverSocket = new ServerSocket(10008);
