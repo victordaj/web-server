@@ -15,7 +15,7 @@ public class Config {
             loadProperties();
         else {
 
-            props.setProperty("rootPath", "C:\\Users\\Victor-PC\\Desktop\\SVV\\web-server\\htdocs");
+            props.setProperty("rootPath", "C:\\Users\\Victor-PC\\Desktop\\SVV\\web-server\\htdocs\\");
             props.setProperty("defaultPage", "index.html");
             props.setProperty("errorPage", "not_found.html");
             props.setProperty("port", "9000");

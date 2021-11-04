@@ -3,6 +3,8 @@ import config.Config;
 import java.net.*;
 import java.io.*;
 
+import requests.RequestHandler;
+
 public class Server extends Thread {
     protected Socket clientSocket;
 
@@ -16,7 +18,7 @@ public class Server extends Thread {
             try {
                 while (true) {
                     System.out.println("Waiting for Connection");
-                    new Server(serverSocket.accept());
+                    new Thread(new RequestHandler(serverSocket.accept())).start();
                 }
             } catch (IOException e) {
                 System.err.println("Accept failed.");

@@ -7,7 +7,7 @@ public class Types {
     public static String GIF = "image/gif";
     public static String PLAIN = "text/plain";
 
-    public static String getMimeType(String path) {
+    public static String getType(String path) {
         String contentType = Types.PLAIN;
         if (path.endsWith(".html") || path.endsWith(".htm") || path.equals("/") || path.isEmpty())
             contentType = Types.HTML;
