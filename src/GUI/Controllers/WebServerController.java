@@ -1,39 +1,84 @@
 package GUI.Controllers;
 
+import config.Config;
 import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import server.Server;
 
-import java.io.IOException;
+import java.net.Socket;
 
 public class WebServerController extends Application {
     @FXML
-    public TextField usernameField;
+    public Text serverAddress;
     @FXML
-    public TextField mailField;
+    public Text serverStatus;
     @FXML
-    public TextField addressField;
+    public Text serverIp;
     @FXML
-    public TextField accountField;
+    public Button start;
     @FXML
-    public TextField passwordField;
+    public TextField listeningPort;
     @FXML
-    public Text submitMessage;
+    public CheckBox mainteinanceMode;
     @FXML
-    public Button submitButton;
+    public TextField rootDirectory;
+    @FXML
+    public TextField mainteinanceDirectory;
+
+    public Server server = new Server("localhost", 2000 ) ;
 
     public void handleSubmitButtonAction(){
+        if(start.getText().equals("Start")){
+            server.init();
+            System.out.println("miau");
+            serverStatus.setText("running");
+            serverIp.setText(Integer.toString(Config.port));
+            serverAddress.setText("not running");
+            start.setText("Stop");
+            listeningPort.setDisable(true);
+            rootDirectory.setDisable(true);
+            mainteinanceMode.setDisable(false);
+        }
+        else if(start.getText().equals("Stop")){
+            serverStatus.setText("not running");
+            serverAddress.setText("not running");
+            serverIp.setText("not running");
+            start.setText("Start");
+            listeningPort.setDisable(false);
+            rootDirectory.setDisable(false);
+            mainteinanceMode.setDisable(true);
+        }
+
+     }
+
+     public void handleMaintainanceAction(){
+        if(!mainteinanceMode.isSelected()){
+         serverStatus.setText("mainteinance");
+         serverIp.setText(Integer.toString(Config.port));
+         serverAddress.setText("not running");
+        }
+        else {
+
+        }
+     }
+     public void onRootChange(){
      }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
     }
+
+    public void initialize() {
+        serverAddress.setText("not running");
+        serverStatus.setText("not running");
+        serverIp.setText("not running");
+        mainteinanceMode.setDisable(true);
+    }
+
 }

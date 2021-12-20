@@ -1,3 +1,5 @@
+package server;
+
 import config.Config;
 
 import java.net.*;
@@ -8,7 +10,16 @@ import requests.RequestHandler;
 public class Server extends Thread {
     protected Socket clientSocket;
 
-    public static void main(String[] args) throws IOException {
+    public Server(String host, int ip) {
+        Socket socket = null;
+        try {
+            socket = new Socket(host, ip);
+        }catch(Exception e){System.out.println(e);}
+        clientSocket = socket;
+        start();
+    }
+
+    public static void init() {
         ServerSocket serverSocket = null;
         Config config = new Config();
 
@@ -35,11 +46,6 @@ public class Server extends Thread {
                 System.exit(1);
             }
         }
-    }
-
-    public Server(Socket clientSoc) {
-        clientSocket = clientSoc;
-        start();
     }
 
     public void run() {
