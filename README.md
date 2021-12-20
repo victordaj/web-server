@@ -21,3 +21,11 @@ Dynamic Analysis
 
 ![image](https://user-images.githubusercontent.com/62349000/143480483-c256c496-a853-4038-ac6c-d71d0568b04c.png)
 
+
+3D VIEW
+
+![image](https://user-images.githubusercontent.com/62349000/146820641-4bb18fba-ab8b-4b35-8ed5-91ae5b3604ab.png)
+
+![image](https://user-images.githubusercontent.com/62349000/146820721-2b9d0e79-dd36-4f58-9619-fad513a87602.png)
+
+![image](https://user-images.githubusercontent.com/62349000/146820838-d4ff1a68-3b29-43bc-9991-e8fcc0c34614.png)
